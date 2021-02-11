@@ -4,6 +4,7 @@
 
 //the add function is a stub
 int add(int a, int b){
+  printf("adding numbers");
   return a + b;
 }
 
@@ -27,7 +28,7 @@ int main() {
 
     CU_basic_run_tests();
 
-    CU_cleanup_registry();
+    //CU_cleanup_registry();
 
 
 
