@@ -4,7 +4,6 @@
 
 //the add function is a stub
 int add(int a, int b){
-  printf("adding numbers");
   return a + b;
 }
 
@@ -20,16 +19,21 @@ int main() {
 
     CU_initialize_registry();
 
+    printf("initialized\n");
+  
     CU_pSuite suite1 = CU_add_suite("test_add", 0, 0);
-    
+  
+    printf("made suite\n");    
     CU_add_test(suite1, "test_add", test_add);
     
+    printf("added test\n");
+           
     CU_basic_set_mode(CU_BRM_VERBOSE);
-
+    printf("set mode\n");
     CU_basic_run_tests();
-
-    //CU_cleanup_registry();
-
+    printf("ran tests\n");
+    CU_cleanup_registry();
+    printf("cleaned up\n");
 
 
     return 0;
