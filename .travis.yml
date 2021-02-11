@@ -47,22 +47,4 @@ script:
   - ./cunit_democode_a
   - size cunit_democode_a
   
-    - echo "Reached Script Section - P CUnit"
-  - gcc   	p_practice.c p_test.c -o cunit_democode_p -lcunit
-  - ./cunit_democode_p
-  - size cunit_democode_p
-  
-    - echo "Reached Script Section - S CUnit"
-  - gcc   	s_practice.c s_test.c -o cunit_democode_s -lcunit
-  - ./cunit_democode_s
-  - size cunit_democode_s
-  
-    - echo "Reached Script Section - J CUnit"
-  - gcc   	j_practice.c j_test.c -o cunit_democode_j -lcunit
-  - ./cunit_democode_j
-  - size cunit_democode_j
-  
-    - echo "Reached Script Section - V CUnit"
-  - gcc   	v_practice.c v_test.c -o cunit_democode_v -lcunit
-  - ./cunit_democode_v
-  - size cunit_democode_v
+
