@@ -1,0 +1,68 @@
+language: c
+
+
+compiler:
+
+  - gcc
+
+before_install:
+
+  - sudo apt-get update
+
+  - sudo apt-get -y install libcunit1 libcunit1-doc libcunit1-dev
+  - wget http://downloads.sourceforge.net/project/cunit/CUnit/2.1-2/CUnit-2.1-2-src.tar.bz2
+
+  - tar -xvjpf CUnit-2.1-2-src.tar.bz2
+
+  - cd CUnit-2.1-2
+
+  - ./configure --prefix=$TRAVIS_BUILD_DIR
+
+  - make
+
+  - make install
+
+  - export C_INCLUDE_PATH=$TRAVIS_BUILD_DIR/include:$C_INCLUDE_PATH
+
+  - export LIBRARY_PATH=$TRAVIS_BUILD_DIR/lib:$LIBRARY_PATH
+
+  - export LD_LIBRARY_PATH=$TRAVIS_BUILD_DIR/lib:$LD_LIBRARY_PATH
+
+  #Come back to the repo unwarpped folder
+
+  - cd $TRAVIS_BUILD_DIR/
+install:
+
+  - echo  "Reached Install Section"
+
+script:  
+
+  - echo "Reached Script Section - Hello"
+  - gcc   	a_practice.c p_practice.c s_practice.c j_practice.c v_practice.c main.c -o output
+  - ./output
+  - size output
+
+  - echo "Reached Script Section - A CUnit"
+  - gcc   	a_practice.c a_test.c -o cunit_democode_a -lcunit
+  - ./cunit_democode_a
+  - size cunit_democode_a
+  
+    - echo "Reached Script Section - P CUnit"
+  - gcc   	p_practice.c p_test.c -o cunit_democode_p -lcunit
+  - ./cunit_democode_p
+  - size cunit_democode_p
+  
+    - echo "Reached Script Section - S CUnit"
+  - gcc   	s_practice.c s_test.c -o cunit_democode_s -lcunit
+  - ./cunit_democode_s
+  - size cunit_democode_s
+  
+    - echo "Reached Script Section - J CUnit"
+  - gcc   	j_practice.c j_test.c -o cunit_democode_j -lcunit
+  - ./cunit_democode_j
+  - size cunit_democode_j
+  
+    - echo "Reached Script Section - V CUnit"
+  - gcc   	v_practice.c v_test.c -o cunit_democode_v -lcunit
+  - ./cunit_democode_v
+  - size cunit_democode_v
